@@ -1,9 +1,10 @@
-var myColor = $('#colorPicker').css('color');
 
-$('#sizePicker').submit(function(){
+
+$('#sizePicker').submit(function(event){
     var inputHeight = $('#inputHeight').val();
     var inputWidth = $('#inputWeight').val();
     makeGrid(inputHeight, inputWidth);
+    even.preventDefault();
        
 });
 
@@ -25,6 +26,12 @@ function makeGrid(gridHeight, gridWidth) {
         grid += "</tr>";
         $('#pixelCanvas').append(grid);
     }
+    $('td').click(function() {
+        var myColor = $('#colorPicker').css('color');
+        $(this).css('color', myColor);
+        
+        
+    })
     
 // Your code goes here!
 
