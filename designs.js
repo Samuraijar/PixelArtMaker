@@ -1,51 +1,38 @@
-// When size is submitted by the user, call makeGrid()
-var inputHeight, inputWidth
+
 
 $('#sizePicker').submit(function(event){
-    
-    // Select size input
-    inputHeight = $('#inputHeight').val();
-    inputWidth = $('#inputWeight').val();
-    
-    //call function makeGrid()
+    var inputHeight = $('#inputHeight').val();
+    var inputWidth = $('#inputWeight').val();
     makeGrid(inputHeight, inputWidth);
-    
-    event.preventDefault();
+    even.preventDefault();
        
 });
 
+// Select color input
+// Select size input
 
-// Your code goes here!
+// When size is submitted by the user, call makeGrid()
+
 
 function makeGrid(gridHeight, gridWidth) {
-    //remove previously created grid
-    $('table tr').remove();
-    //initialize grid
-    var grid = "";
-    //nested loop to create rows and columns
+    
+    var grid = "<table>";
+    grid.remove();
     for (var x = 1; x <= gridHeight; x++) {
-        
-       grid += "<tr>";
+        grid += "<tr>";
         for (var y = 1; y <= gridWidth; y++) {
-            
             grid += "<td></td>";
         }
         grid += "</tr>";
-        
+        $('#pixelCanvas').append(grid);
     }
-    $('#pixelCanvas').append(grid);
-    
     $('td').click(function() {
+        var myColor = $('#colorPicker').css('color');
+        $(this).css('color', myColor);
         
-        // Select color input
-        var myColor = $('#colorPicker').val();
         
-        //apply input color to current grid
-        $(this).attr('style') ? $(this).removeAttr('style') : $(this).attr('style', 'background:' + myColor);
-
-        });
+    })
+    
+// Your code goes here!
 
 }
-
-
-
